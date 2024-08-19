@@ -1,0 +1,75 @@
+CREATE TABLE Машины (
+	car_id INTEGER,
+	легковой_авт BOOL,
+	марка VARCHAR(100),
+	номер VARCHAR(6),
+	водитель VARCHAR(100),
+	цвет VARCHAR(100),
+	места INTEGER
+	);
+
+CREATE TABLE Заказы (
+	order_id INTEGER,
+	время TIME,
+	адрес VARCHAR(200),
+	стоимость_р INTEGER,
+	оплата_картой BOOL,
+	car_id INTEGER,
+	client_id INTEGER,
+	отменен BOOL
+	);
+
+CREATE TABLE Клиенты (
+	client_id INTEGER,
+	имя VARCHAR(100),
+	номер VARCHAR(12),
+	адрес VARCHAR(200)
+	);
+
+INSERT INTO Машины
+VALUES (1, true, 'HONDA', 'А789ОН', 'Олег', 'зеленый', 3);
+
+INSERT INTO Машины
+VALUES (2, true, 'KIA', 'Р985АВ', 'Игорь', 'черный', 3);
+
+INSERT INTO Машины
+VALUES (3, true, 'HYUNDAI', 'В374ОН', 'Анндрей', 'черный', 3);
+
+INSERT INTO Машины
+VALUES (4, FALSE, 'HYUNDAI', 'Н194ВН', 'Ольга', 'белый', 10);
+
+INSERT INTO Заказы 
+VALUES (1, '"12:35:00"', '5-я линия Васильевского острова, 46', 150, TRUE, 1, 2, FALSE);
+
+INSERT INTO Заказы 
+VALUES (2, '13:50:00', 'Большая Посадская улица, 24/2С', 450, FALSE, 1, 2, TRUE);
+
+INSERT INTO Заказы 
+VALUES (3, '13:52:00', 'Большая Посадская улица, 24/2С', 390, FALSE, 3, 2, FALSE);
+
+INSERT INTO Заказы 
+VALUES (4, '16:15:00', 'Парадная улица, 3', 1200, TRUE, 4, 1, FALSE);
+
+INSERT INTO Заказы 
+VALUES (5, '17:35:00', 'Сибирская улица, 16', 350, TRUE, 2, 3, FALSE);
+
+INSERT INTO Заказы 
+VALUES (6, '20:40:00', 'Арсенальная улица, 2', 550, TRUE, 1, 1, FALSE);
+
+INSERT INTO Заказы 
+VALUES (7, '21:05:00', '5-я линия Васильевского острова, 46', 490, FALSE, 3, 2, TRUE);
+
+INSERT INTO Заказы 
+VALUES (8, '23:08:00', '5-я линия Васильевского острова, 46', 250, TRUE, 1, 1, FALSE);
+
+INSERT INTO Заказы 
+VALUES (9, '06:35:00', 'Арсенальная улица, 2', 1000, TRUE, 4, 1, FALSE);
+
+INSERT INTO Клиенты
+VALUES (1, 'Николай', '+79127774433', '5-я линия Васильевского острова, 46');
+
+INSERT INTO Клиенты
+VALUES (2, 'Катя', '+79128953421', 'Большая Посадская улица, 24/2С');
+
+INSERT INTO Клиенты
+VALUES (3, 'Федр', '+79120754482', 'Сибирская улица, 16');
