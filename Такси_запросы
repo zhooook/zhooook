@@ -1,0 +1,18 @@
+SELECT * FROM Машины WHERE места >= 10;
+
+SELECT * FROM Машины WHERE легковой_авт = true;
+
+SELECT * FROM Заказы WHERE отменен = true;
+
+SELECT * FROM Заказы WHERE оплата_картой = true;
+
+SELECT * FROM Заказы WHERE client_id = 1;
+
+SELECT COUNT(*) FROM Заказы
+WHERE оплата_картой = true AND отменен = false;
+
+SELECT (SELECT номер FROM Машины WHERE Машины.car_id=Заказы.car_id) , SUM(стоимость_р) FROM Заказы
+GROUP BY car_id
+HAVING SUM(стоимость_р) < 1000;
+
+SELECT имя, номер, время FROM Клиенты JOIN Заказы ON Клиенты.client_id = Заказы.client_id;
